@@ -16,7 +16,7 @@
     "laminas/laminas-cache-storage-adapter-filesystem": "^2.5 || ^3.0",
     "laminas/laminas-session": "^2.24",
     "webmozart/assert": "^1.11.0",
-    "doctrine/orm": "^3.0"
+    "doctrine/orm": "^2.0 || ^3.0"
   },
   "require-dev": {
     "iteaoffice/testing": "^5.1-dev",
