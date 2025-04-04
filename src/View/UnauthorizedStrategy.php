@@ -19,9 +19,9 @@ use Laminas\View\Model\ViewModel;
 
 final class UnauthorizedStrategy extends \BjyAuthorize\View\UnauthorizedStrategy
 {
-    #[Pure] public function __construct(private readonly AuthenticationService $authenticationService, array $config)
+    #[Pure] public function __construct(private readonly AuthenticationService $authenticationService, private array $config)
     {
-        parent::__construct('default' ?? $config['template']);
+        parent::__construct('error/403' ?? $config['template']);
     }
 
     public function onDispatchError(MvcEvent $event): \Laminas\Http\PhpEnvironment\Response
@@ -50,7 +50,7 @@ final class UnauthorizedStrategy extends \BjyAuthorize\View\UnauthorizedStrategy
                  * When the user is not logged in, redirect to the login-page and assemble the referrer
                  */
                 if (!$this->authenticationService->hasIdentity()) {
-                    $url = $event->getRouter()->assemble([], ['name' => 'user/login']);
+                    $url = $event->getRouter()->assemble([], ['name' => $this->config['login_route']]);
 
                     /** @var TreeRouteStack $router */
                     $router = $event->getRouter();

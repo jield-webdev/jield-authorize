@@ -12,14 +12,14 @@
   ],
   "require": {
     "php": "~8.3.0 || ~8.4.0",
-    "kokspflanze/bjy-authorize": "^2.4",
-    "laminas/laminas-cache-storage-adapter-filesystem": "^2.3 || ^3.0",
-    "laminas/laminas-session": "^2.17",
+    "jield-webdev/bjy-authorize": "dev-develop",
+    "laminas/laminas-cache-storage-adapter-filesystem": "^2.5 || ^3.0",
+    "laminas/laminas-session": "^2.24",
     "webmozart/assert": "^1.11.0",
-    "doctrine/orm": "^2.13.3 || ^3.0"
+    "doctrine/orm": "^2.0 || ^3.0"
   },
   "require-dev": {
-    "iteaoffice/testing": "^5.0",
+    "iteaoffice/testing": "^5.1-dev",
     "roave/security-advisories": "dev-latest"
   },
   "autoload": {
