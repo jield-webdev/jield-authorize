@@ -20,6 +20,7 @@ jobs:
         php-version:
           - 8.3
           - 8.4
+          - 8.5
         operating-system:
           - ubuntu-latest
 
@@ -56,5 +57,5 @@ jobs:
       - name: Run Lint Checker suite
         run: composer php-lint
 
-      - name: PHP stan
+      - name: PHPStan
         run: composer phpstan

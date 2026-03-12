@@ -16,22 +16,24 @@ use Laminas\Permissions\Acl\Role\RoleInterface;
 
 final class AuthenticationIdentityProvider extends \BjyAuthorize\Provider\Identity\AuthenticationIdentityProvider
 {
-    public const ACCESS_PUBLIC       = 'public';
-    public const ACCESS_AUTHETICATED = 'user';
+    public const string ACCESS_PUBLIC = 'public';
+    public const string ACCESS_AUTHENTICATED = 'user';
 
-    protected $defaultRole;
-    protected $authenticatedRole;
+    protected RoleInterface|string $defaultRole;
+    protected RoleInterface|string $authenticatedRole;
 
-    #[Pure] public function __construct(
-        AuthenticationService $authService,
+    #[Pure]
+    public function __construct(
+        AuthenticationService              $authService,
         private AccessRolesByUserInterface $accessOrUserService,
-        private HasPermitInterface $permitService,
-        array $authorizeConfig
-    ) {
+        private HasPermitInterface         $permitService,
+        array                              $authorizeConfig
+    )
+    {
         parent::__construct($authService);
 
         $this->defaultRole       = $authorizeConfig['default_role'] ?? self::ACCESS_PUBLIC;
-        $this->authenticatedRole = $authorizeConfig['authenticated_role'] ?? self::ACCESS_AUTHETICATED;
+        $this->authenticatedRole = $authorizeConfig['authenticated_role'] ?? self::ACCESS_AUTHENTICATED;
     }
 
     public function getIdentityAsRole(): UserAsRole
