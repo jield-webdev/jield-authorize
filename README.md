@@ -27,3 +27,9 @@ return [
     ],
 ];
 ```
+
+For testing
+
+```shell
+docker compose run --rm php vendor/bin/phpunit
+```
