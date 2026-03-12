@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - develop
+      - allow-php85
   pull_request:
     branches:
       - main
